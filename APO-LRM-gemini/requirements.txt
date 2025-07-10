@@ -47,7 +47,7 @@ pydantic==2.11.7
 pydantic_core==2.33.2
 pyparsing==3.2.3
 python-dateutil==2.9.0.post0
-python-liquid @ file:///Users/skylorwong/Downloads/APO/APO-LRM/liquid
+python-liquid
 pytz==2025.2
 PyYAML==6.0.2
 regex==2024.11.6
