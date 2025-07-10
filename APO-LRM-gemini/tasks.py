@@ -200,6 +200,7 @@ class MathReasoningTask(ReasoningDataProcessor):
         labels_parsed = []
         preds_parsed = []
         num_correct = 0
+        print(f"preds : {preds}")
         for label, pred in zip(labels, preds):
             label_parsed = parse(
                 label,
