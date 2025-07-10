@@ -1,0 +1,8 @@
+exps
+__pycache__
+__pycache__/*
+__pycache__/
+data/math/test
+data/math/train
+data/math/train_raw.jsonl
+data/math/test_raw.jsonl

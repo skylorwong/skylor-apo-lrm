@@ -1,0 +1,2 @@
+original = '''I'm trying to write a zero-shot classifier prompt.'''
+math = '''I'm trying to write a prompt for a mathematical reasoning task, aiming to generate responses that improve reasoning performance.'''
