@@ -34,9 +34,9 @@ class DataProcessor(ABC):
 
 
 def process_example(ex, predictor, prompt):
-    print(f"LOGGING example : {ex}")
+    #(f"LOGGING example : {ex}")
     pred = predictor.inference(ex, prompt)
-    print(f"LOGGING prediction : {pred}")
+    #print(f"LOGGING prediction : {pred}")
     return ex, pred
 
 
@@ -168,8 +168,8 @@ class MathReasoningTask(ReasoningDataProcessor):
         labels = []
         preds = []
         texts = []
-        print(f"predictor in RUN_EVALUATE: {predictor}")
-        print(f"prompt in RUN_EVALUATE: {prompt}")
+        #(f"predictor in RUN_EVALUATE: {predictor}")
+        #print(f"prompt in RUN_EVALUATE: {prompt}")
         #print(f"test_exs: {test_exs}")
         #res = process_example(test_exs[0], predictor, prompt)
         #print(f"LOGGING result: {res}")
@@ -184,7 +184,11 @@ class MathReasoningTask(ReasoningDataProcessor):
                 labels.append(ex['label'])
                 preds.append(pred)
 
+        #print("getting accuracy")
         accuracy, labels_parsed, preds_parsed = self.accuracy_score(labels, preds)
+        #print(f"accuracy: {accuracy}")
+        #print(f"labels_parsed: {labels_parsed}")
+        #print(f"preds_parsed: {preds_parsed}")
         return accuracy, texts, labels, preds, labels_parsed, preds_parsed
 
     def evaluate(self, predictor, prompt, test_exs, n=100):
@@ -200,21 +204,20 @@ class MathReasoningTask(ReasoningDataProcessor):
         labels_parsed = []
         preds_parsed = []
         num_correct = 0
-        print(f"preds : {preds}")
+        #print(f"preds : {preds}")
         for label, pred in zip(labels, preds):
             label_parsed = parse(
                 label,
                 extraction_mode="first_match",
             )
             pred_parsed = parse(
-                pred[0],
+                pred,
                 extraction_config=[
                     LatexExtractionConfig(
                         normalization_config=NormalizationConfig(
                             nits=False,
                             malformed_operators=False,
                             basic_latex=True,
-                            equations=True,
                             boxed="all",
                             units=True,
                         ),

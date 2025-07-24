@@ -119,14 +119,13 @@ class CachedMathVerifyScorer:
                     prompt, ex, pred = future.result()
                     label_parsed = parse(ex['label'], extraction_mode="first_match")
                     pred_parsed = parse(
-                        pred[0],
+                        pred,
                         extraction_config=[
                             LatexExtractionConfig(
                                 normalization_config=NormalizationConfig(
                                     nits=False,
                                     malformed_operators=False,
                                     basic_latex=True,
-                                    equations=True,
                                     boxed="all",
                                     units=True,
                                 ),

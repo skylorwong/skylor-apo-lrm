@@ -203,23 +203,23 @@ def gemini(prompt, temperature=0.7, n=1, top_p=1, max_tokens=1024, model_name='g
     #model = genai.GenerativeModel(model_name="gemini-2.0-flash")
     model = genai.GenerativeModel(model_name='gemini-1.5-flash')
     messages = prompt
-    print(f"LOGGING model : {model}")
-    print(f"LOGGING prompt : {prompt}")
+    #print(f"LOGGING model : {model}")
+    #print(f"LOGGING prompt : {prompt}")
 
     num_attempts = 0
     while num_attempts < 10:
-        print(f"LOGGING num_attempts : {num_attempts}")
+        #print(f"LOGGING num_attempts : {num_attempts}")
         num_attempts += 1
         try:
-            print("LOGGING trying to get response")
+            #print("LOGGING trying to get response")
             response = model.generate_content(messages,
                                               generation_config=genai.GenerationConfig(temperature=temperature,
                                                                                        top_p=top_p,
                                                                                        max_output_tokens=max_tokens),
                                               safety_settings=safety_settings,
                                               )
-            print("LOGGING got response")
-            print(f"LOGGING response text: {response.text}")
+            #print("LOGGING got response")
+            #print(f"LOGGING response text: {response.text}")
             FinishReason = protos.Candidate.FinishReason
             if response.candidates:
                 if (response.candidates[0].finish_reason == FinishReason.STOP

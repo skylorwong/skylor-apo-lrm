@@ -138,7 +138,7 @@ if __name__ == '__main__':
     if os.path.exists(args.out):
         os.remove(args.out)
 
-    print(config)
+    #print(config)
 
     with open(args.out, 'a') as outf:
         outf.write(json.dumps(config) + '\n')

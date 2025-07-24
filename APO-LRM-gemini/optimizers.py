@@ -418,6 +418,7 @@ class ProTeGiV2(PromptOptimizer):
         if len(prompts) == 1:
             return [1.0]
 
+        #print("EVALUATING!!", flush=True)
         evals = self.evaluator_fn(
             prompts, train_exs, task, gpt4,
             scorer=self.scorer,
@@ -426,4 +427,6 @@ class ProTeGiV2(PromptOptimizer):
             samples_per_eval=self.opt['samples_per_eval'],
             max_threads=self.max_threads
         )
+        #print("EVALUATING DONE", flush=True)
+        #print(f"EVALS: {evals}", flush=True)
         return evals

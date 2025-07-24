@@ -26,8 +26,8 @@ class BinaryPredictor(GPT4Predictor):
             prompt, max_tokens=1024, n=1, 
             temperature=self.opt['temperature'],
             model_name='gemini-1.5-flash')[0]
-        pred = 1 if response.strip().upper().startswith('YES') else 0
-        return pred
+        #pred = 1 if response.strip().upper().startswith('YES') else 0
+        return response
 
 
 class SGLReasoningPredictor(GPT4Predictor):
