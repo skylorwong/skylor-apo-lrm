@@ -7,11 +7,11 @@ n_train_exs=1024
 minibatch_size=32
 samples_per_eval=64
 
-out=exps/math/deepseek1.5_gpt-4.1-mini_mb=${minibatch_size}_se=${samples_per_eval}_ntr=${n_train_exs}.txt
+out=exps/math/gemini1.5.1-mini_mb=${minibatch_size}_se=${samples_per_eval}_ntr=${n_train_exs}.txt
 
 python main.py --task math \
     --prompts prompts/math.md \
-    --data_dir data/math \
+    --data_dir data/amc \
     --out $out \
     --evaluator ucb \
     --max_threads 96 \
